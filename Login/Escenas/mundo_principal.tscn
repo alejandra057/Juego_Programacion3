@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtg5bdj4jwplo"]
+[gd_scene load_steps=8 format=3 uid="uid://dtg5bdj4jwplo"]
 
 [ext_resource type="Script" path="res://mundo_principal.gd" id="1_2s3is"]
 [ext_resource type="PackedScene" uid="uid://dnnqpwoe88nfe" path="res://Escenas/character_body_2d.tscn" id="2_2qobx"]
 [ext_resource type="Texture2D" uid="uid://c3k7svaw8757o" path="res://Art/Escenarios_Mundos/Imagen de WhatsApp 2024-01-30 a las 19.34.25_6a22e99f.jpg" id="3_12v25"]
-[ext_resource type="Texture2D" path="res://Art/Fondos_Imagenes/toppng.com-text-box-pixel-art-cupcake-601x211.png" id="4_3xme5"]
-[ext_resource type="Texture2D" path="res://Art/Fondos_Imagenes/PXUI-Basic/arrow_example.png" id="5_pba2b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wg2j5"]
 texture = ExtResource("3_12v25")
@@ -13648,7 +13646,6 @@ sources/0 = SubResource("TileSetAtlasSource_wg2j5")
 size = Vector2(66, 55)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqjjf"]
-texture = ExtResource("4_3xme5")
 region_rect = Rect2(0.5, -0.5, 835, 296)
 
 [node name="Mundo Principal" type="Node2D"]
@@ -13710,7 +13707,6 @@ offset_left = 201.0
 offset_top = 163.0
 offset_right = 256.0
 offset_bottom = 218.0
-texture = ExtResource("5_pba2b")
 expand_mode = 2
 stretch_mode = 5
 
