@@ -9,8 +9,16 @@ var selecmorado=false
 var selectnara=false
 var selectazul=false
 var selectrosa=false
+var contarmorado=0
+var contarnara=0
+var contarazul=0
+var contarrosa=0
 func _ready():
 	cargar()
+	contarmorado+=1
+	contarazul+=1
+	contarnara+=1
+	contarrosa+=1
 	pass # Replace with function body.
 
 func cargar():

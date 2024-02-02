@@ -3,9 +3,10 @@ var ruta=""
 var rutac=""
 var rutap=""
 var rutah=""
-
+var texto: Label
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	texto =$"../lbanuncio"
 	pass # Replace with function body.
 
 
@@ -25,12 +26,15 @@ func _process(delta):
 func _on_area_2d_2_body_entered(body):
 	print("entra")
 	if body.is_in_group("player") and Saveus.selectrosa:
-		print("Entra en a")
-		ruta="res://Escenas/arte.tscn"
-	if body.is_in_group("player")and Saveus.selecmorado:
+		if Saveus.contarrosa==1:
+			print("Entra en a")
+			ruta="res://Escenas/arte.tscn"
+		else:
+			texto.text="Gira nuevamente"
+	if body.is_in_group("player")and Saveus.selecmorado and Saveus.contarmorado==1:
 		rutah="res://Escenas/historia.tscn"
-	if body.is_in_group("player") and Saveus.selectnara:
+	if body.is_in_group("player") and Saveus.selectnara and Saveus.contarnara==1:
 		rutac="res://Escenas/ciencia.tscn"
-	if body.is_in_group("player") and Saveus.selectazul:
+	if body.is_in_group("player") and Saveus.selectazul and Saveus.contarazul==1:
 		rutap="res://Escenas/politica.tscn"
 	pass # Replace with function body.

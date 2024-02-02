@@ -1,12 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://dbx4phwsxij24"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lmdwm"]
+[ext_resource type="Texture2D" uid="uid://dyva7u67dhxqc" path="res://Art/Escenarios_Mundos/Imagen de WhatsApp 2024-01-29 a las 22.26.09_621565f5.jpg" id="1_v3261"]
 
 [node name="dr_ and perry_world" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 1
-offset_right = 1168.0
-offset_bottom = 647.0
-texture = SubResource("CompressedTexture2D_lmdwm")
-expand_mode = 2
+[node name="ImagenDeWhatsApp2024-01-29ALas22_26_09621565f5" type="Sprite2D" parent="."]
+position = Vector2(579, 448)
+scale = Vector2(0.898438, 1.25278)
+texture = ExtResource("1_v3261")

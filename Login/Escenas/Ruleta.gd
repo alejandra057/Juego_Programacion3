@@ -17,6 +17,7 @@ var selectnara=false
 var selectazul=false
 var selectrosa=false
 var tiempoextra=0
+var intentos =2
 @onready var timer=$"../Timer"
 @onready var rotacion=$"."
 
@@ -40,12 +41,8 @@ func _process(delta):
 		encendido=false
 		timer.stop()
 		eliminar()
-		if tiempoextra>0:
-			
-			timer.start(tiempoextra)
-			print("tiempo: ",tiempoextra)
-			tiempoextra=0
-	if encendido==true:
+	
+	if encendido==true and intentos>0:
 		rotacion.rotation_degrees+=velocidad
 	else:
 		encendido=false
@@ -59,6 +56,7 @@ func _on_timer_timeout():
 
 func _on_btiniciar_pressed():
 	contar=1
+	intentos-=1;
 	velocidad=randf_range(15,25)
 	encendido=true
 	#randomize()
@@ -107,25 +105,48 @@ func eliminar():
 				btok.show()
 				selecmorado=true
 				Saveus.selecmorado=true
+				Saveus.contarmorado=+1
+				print("morado",Saveus.contarmorado)
+				if Saveus.contarmorado>1:
+					Saveus.selecmorado=false
+					lbhistoria.show()
+					intentos+=1
 			elif "Azul"==estado:
 				lbpolitica.show()
 				btok.show()
 				texto.text="CATEGORIA\nPOLITICA"
 				selectazul=true
 				Saveus.selectazul=true
+				Saveus.contarazul=+1
+				print("AZul",Saveus.contarazul)
+				if Saveus.contarazul>1:
+					Saveus.selectazul=false
+					lbpolitica.show()
+					intentos+=1
 			elif "Naranja"==estado:
 				lbciencia.show()
 				texto.text="CATEGORIA\nCIENCIA"
 				btok.show()
 				selectnara=true
 				Saveus.selectnara=true
+				Saveus.contarnara+1
+				print("naranja",Saveus.contarnara)
+				if Saveus.contarnara>1:
+					Saveus.selectnara=false
+					lbciencia.show()
+					intentos+=1
 			elif "Rosa"==estado:
 				lbarte.show()
 				btok.show()
 				texto.text="CATEGORIA\nARTE"
 				selectrosa=true
 				Saveus.selectrosa=true
-				
+				Saveus.contarrosa=+1
+				print("rosa",Saveus.contarrosa)
+				if Saveus.contarrosa>1:
+					Saveus.selectrosa=false
+					lbarte.show()
+					intentos+=1
 
 
 func _on_area_2d_body_entered(body):
