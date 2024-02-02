@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvlohg2vkibc5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mjr2n"]
+
+[node name="Narrative" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1143.0
+offset_bottom = 642.0
+texture = SubResource("ViewportTexture_mjr2n")

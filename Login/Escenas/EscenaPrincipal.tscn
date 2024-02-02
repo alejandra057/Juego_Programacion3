@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://b000p4bthcvp3"]
+
+[ext_resource type="PackedScene" uid="uid://blrjfamkul315" path="res://Escenas/Ruleta.tscn" id="1_ktxne"]
+[ext_resource type="PackedScene" uid="uid://c8kfa5mkomfas" path="res://Escenas/manecilla.tscn" id="2_j3nja"]
+
+[sub_resource type="Theme" id="Theme_2mg04"]
+
+[sub_resource type="Theme" id="Theme_l2dxv"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8fr4k"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_ktxne")]
+position = Vector2(341, 348)
+
+[node name="Area2D" parent="." groups=["Color"] instance=ExtResource("2_j3nja")]
+position = Vector2(-113, 55)
+
+[node name="btiniciar" type="Button" parent="."]
+offset_left = 279.0
+offset_top = 582.0
+offset_right = 379.0
+offset_bottom = 616.0
+text = "Iniciar"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 47.0
+offset_top = 22.0
+offset_right = 160.0
+offset_bottom = 62.0
+
+[node name="lbanuncio" type="Label" parent="."]
+show_behind_parent = true
+offset_left = 212.0
+offset_top = 5.0
+offset_right = 480.0
+offset_bottom = 129.0
+theme = SubResource("Theme_2mg04")
+theme_override_font_sizes/font_size = 40
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+offset_left = 410.0
+offset_top = 91.0
+offset_right = 470.0
+offset_bottom = 124.0
+theme = SubResource("Theme_l2dxv")
+text = "OK"
+icon = SubResource("ViewportTexture_8fr4k")
+
+[connection signal="pressed" from="btiniciar" to="Node2D" method="_on_btiniciar_pressed"]
+[connection signal="timeout" from="Timer" to="Node2D" method="_on_timer_timeout"]
+[connection signal="pressed" from="Button" to="Node2D" method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="Node2D" method="_on_button_2_pressed"]

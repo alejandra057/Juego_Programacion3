@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=3 uid="uid://blrjfamkul315"]
+
+[ext_resource type="Script" path="res://Escenas/Ruleta.gd" id="1_cxgk3"]
+[ext_resource type="Texture2D" uid="uid://d2sqfki4lp8tk" path="res://Art/Ruleta/rule-removebg-preview.png" id="2_1y1w1"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tv2s4"]
+a = Vector2(36, -39)
+b = Vector2(127, 53)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_em72t"]
+a = Vector2(-47, -8)
+b = Vector2(38, -103)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_x4w05"]
+a = Vector2(-19, 14)
+b = Vector2(-99, -65)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nkrx1"]
+a = Vector2(-37, -13)
+b = Vector2(-123, 60)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-2, 0)
+script = ExtResource("1_cxgk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+rotation = -0.776672
+texture = ExtResource("2_1y1w1")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(4, -78)
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2DN" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-139, 125)
+shape = SubResource("SegmentShape2D_tv2s4")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(59, 95)
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2DR" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-6, 16)
+shape = SubResource("SegmentShape2D_em72t")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(77, 82)
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2DA" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(31, -98)
+shape = SubResource("SegmentShape2D_x4w05")
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(76, -71)
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2DM" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(-44, 4)
+shape = SubResource("SegmentShape2D_nkrx1")
+
+[node name="lbpolitica" type="Label" parent="."]
+visible = false
+offset_left = 42.0
+offset_top = -156.0
+offset_right = 158.0
+offset_bottom = 9.0
+theme_override_font_sizes/font_size = 120
+text = "X"
+
+[node name="lbciencia" type="Label" parent="."]
+visible = false
+offset_left = -116.0
+offset_top = -14.0
+offset_bottom = 151.0
+theme_override_font_sizes/font_size = 120
+text = "X"
+
+[node name="lbarte" type="Label" parent="."]
+visible = false
+offset_left = 37.0
+offset_top = -5.0
+offset_right = 153.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 120
+text = "X"
+
+[node name="lbhistoria" type="Label" parent="."]
+visible = false
+offset_left = -106.0
+offset_top = -162.0
+offset_right = 10.0
+offset_bottom = 3.0
+theme_override_font_sizes/font_size = 120
+text = "X"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -115.0
+offset_top = -51.0
+offset_right = -22.0
+offset_bottom = -16.0
+rotation = -0.809833
+text = "HISTORIA"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 64.0
+offset_top = -99.0
+offset_right = 157.0
+offset_bottom = -64.0
+rotation = 0.811578
+text = "POLITICA"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 105.0
+offset_top = 77.0
+offset_right = 198.0
+offset_bottom = 112.0
+rotation = 2.43299
+text = "ARTE"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = -57.0
+offset_top = 108.0
+offset_right = 36.0
+offset_bottom = 143.0
+rotation = -2.43124
+text = "CIENCIA"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="area_entered" from="Area2D3" to="." method="_on_area_2d_3_area_entered"]
+[connection signal="area_entered" from="Area2D4" to="." method="_on_area_2d_4_area_entered"]
