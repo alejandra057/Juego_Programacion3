@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtg5bdj4jwplo"]
+[gd_scene load_steps=10 format=3 uid="uid://dtg5bdj4jwplo"]
 
 [ext_resource type="Script" path="res://mundo_principal.gd" id="1_2s3is"]
 [ext_resource type="PackedScene" uid="uid://dnnqpwoe88nfe" path="res://Escenas/character_body_2d.tscn" id="2_2qobx"]
 [ext_resource type="Texture2D" uid="uid://c3k7svaw8757o" path="res://Art/Escenarios_Mundos/Imagen de WhatsApp 2024-01-30 a las 19.34.25_6a22e99f.jpg" id="3_12v25"]
+[ext_resource type="Texture2D" uid="uid://bw158r6wikjrr" path="res://Art/Fondos_Imagenes/toppng.com-text-box-pixel-art-cupcake-601x211.png" id="4_3xme5"]
+[ext_resource type="Texture2D" uid="uid://cjfjulh8gurue" path="res://Art/Fondos_Imagenes/PXUI-Basic/arrow_example.png" id="5_pba2b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wg2j5"]
 texture = ExtResource("3_12v25")
@@ -13645,14 +13647,18 @@ sources/0 = SubResource("TileSetAtlasSource_wg2j5")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ps0v2"]
 size = Vector2(66, 55)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqjjf"]
+texture = ExtResource("4_3xme5")
+region_rect = Rect2(0.5, -0.5, 835, 296)
+
 [node name="Mundo Principal" type="Node2D"]
 script = ExtResource("1_2s3is")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 offset_left = 1.0
-offset_top = 1.0
-offset_right = 1176.0
+offset_top = -3.0
+offset_right = 1179.0
 offset_bottom = 899.0
 texture = ExtResource("3_12v25")
 expand_mode = 3
@@ -13673,5 +13679,40 @@ position = Vector2(23, 99)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Castillo"]
 position = Vector2(591, 324.5)
 shape = SubResource("RectangleShape2D_ps0v2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+offset_left = 894.0
+offset_top = 571.0
+offset_right = 1156.0
+offset_bottom = 844.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qqjjf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/Control"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 163.0
+offset_right = 256.0
+offset_bottom = 218.0
+texture = ExtResource("5_pba2b")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/PanelContainer"]
 
 [connection signal="body_entered" from="Castillo" to="." method="_on_area_2d_body_entered"]
