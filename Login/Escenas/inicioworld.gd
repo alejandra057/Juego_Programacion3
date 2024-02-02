@@ -5,6 +5,6 @@ func _process(delta):
 		get_tree().change_scene_to_file(ruleta)
 		
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("player1"):
+	if body.is_in_group("player"):
 		ruleta ="res://Escenas/EscenaPrincipal.tscn"
 		

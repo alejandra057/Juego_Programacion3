@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var velocidad=20
 var encendido=false
 var contar=0
@@ -78,9 +79,6 @@ func _on_area_2d_2_area_entered(area):
 	if area.is_in_group("Color"):
 		estado="Rosa"
 		print(estado)
-		if selectrosa==true:
-			tiempoextra+3
-			print("pasa")
 	
 	pass # Replace with function body.
 
@@ -90,7 +88,6 @@ func _on_area_2d_3_area_entered(area):
 		estado="Azul"
 		print(estado)
 		if selectazul==true:
-			tiempoextra+3
 			print("pasa")
 	pass # Replace with function body.
 
@@ -100,7 +97,6 @@ func _on_area_2d_4_area_entered(area):
 		estado="Morado"
 		print(estado)
 		if selecmorado==true:
-			tiempoextra+3
 			print("pasa")
 	pass # Replace with function body.
 
@@ -110,21 +106,37 @@ func eliminar():
 				texto.text="CATEGORIA\nHISTORIA"
 				btok.show()
 				selecmorado=true
+				Saveus.selecmorado=true
 			elif "Azul"==estado:
 				lbpolitica.show()
 				btok.show()
 				texto.text="CATEGORIA\nPOLITICA"
 				selectazul=true
+				Saveus.selectazul=true
 			elif "Naranja"==estado:
 				lbciencia.show()
 				texto.text="CATEGORIA\nCIENCIA"
 				btok.show()
 				selectnara=true
+				Saveus.selectnara=true
 			elif "Rosa"==estado:
 				lbarte.show()
 				btok.show()
 				texto.text="CATEGORIA\nARTE"
 				selectrosa=true
+				Saveus.selectrosa=true
+				
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player") and Input.is_action_just_pressed("a"):
+		get_tree().change_scene_to_file("res://Escenas/arte.tscn")
+	elif body.is_in_group("player") and Input.is_action_just_pressed("h"):
+		get_tree().change_scene_to_file("res://Escenas/historia.tscn")
+	if body.is_in_group("player") and Input.is_action_just_pressed("c"):
+		get_tree().change_scene_to_file("res://Escenas/ciencia.tscn")
+	elif body.is_in_group("player") and Input.is_action_just_pressed("p"):
+		get_tree().change_scene_to_file("res://Escenas/politica.tscn")
 
 
 

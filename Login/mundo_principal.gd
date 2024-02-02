@@ -2,6 +2,11 @@ extends Node2D
 
 var ruta= ""
 
+
+
+
+
+
 func _process(delta):
 	if Input.is_action_just_pressed("space bar"):
 		get_tree().change_scene_to_file(ruta)

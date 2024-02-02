@@ -19,7 +19,7 @@ b = Vector2(-99, -65)
 a = Vector2(-37, -13)
 b = Vector2(-123, 60)
 
-[node name="Node2D" type="Node2D"]
+[node name="Ruleta" type="Node2D"]
 position = Vector2(-2, 0)
 script = ExtResource("1_cxgk3")
 

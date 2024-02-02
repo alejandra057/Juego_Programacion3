@@ -5,6 +5,10 @@ const ARCHIVO="user://Usuarios.xd"
 var nombre :String
 var password: String
 var texto
+var selecmorado=false
+var selectnara=false
+var selectazul=false
+var selectrosa=false
 func _ready():
 	cargar()
 	pass # Replace with function body.
