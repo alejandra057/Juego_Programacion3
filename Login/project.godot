@@ -11,24 +11,13 @@ config_version=5
 [application]
 
 config/name="Login"
-run/main_scene="res://login.tscn"
+run/main_scene="res://Escenas/login.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Saveus="*res://Saveus.gd"
-
-[display]
-
-window/size/viewport_width=1155
-window/size/viewport_height=900
-
-[importer_defaults]
-
-animation_library={
-"gltf/naming_version": 0
-}
+Saveus="*res://Scripts/Saveus.gd"
 
 [input]
 

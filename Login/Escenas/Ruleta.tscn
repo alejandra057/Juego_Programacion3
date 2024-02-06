@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://blrjfamkul315"]
 
-[ext_resource type="Script" path="res://Escenas/Ruleta.gd" id="1_cxgk3"]
+[ext_resource type="Script" path="res://Scripts/Ruleta.gd" id="1_cxgk3"]
 [ext_resource type="Texture2D" uid="uid://d2sqfki4lp8tk" path="res://Art/Ruleta/rule-removebg-preview.png" id="2_1y1w1"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tv2s4"]
