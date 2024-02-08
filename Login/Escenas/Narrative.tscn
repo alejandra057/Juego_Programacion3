@@ -1,10 +1,91 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvlohg2vkibc5"]
+[gd_scene load_steps=8 format=3 uid="uid://cvlohg2vkibc5"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mjr2n"]
+[ext_resource type="Script" path="res://Escenas/Narrative.gd" id="1_pbiqi"]
+[ext_resource type="AudioStream" uid="uid://bk1dou84pwx41" path="res://Art/Sounds/Antonio Vivaldi - Storm.mp3" id="2_hxo8m"]
 
-[node name="Narrative" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_n15uq"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1143.0
-offset_bottom = 642.0
-texture = SubResource("ViewportTexture_mjr2n")
+[sub_resource type="Animation" id="Animation_g100x"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_o0r6c"]
+resource_name = "new_animation"
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_kffk8"]
+resource_name = "type"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Label2:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0vwj0"]
+_data = {
+"RESET": SubResource("Animation_g100x"),
+"new_animation": SubResource("Animation_o0r6c"),
+"type": SubResource("Animation_kffk8")
+}
+
+[node name="Narrative" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pbiqi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Image" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1146.0
+offset_bottom = 475.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 2.0
+offset_top = 477.0
+offset_right = 1154.0
+offset_bottom = 649.0
+color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 19.0
+offset_top = 492.0
+offset_right = 116.0
+offset_bottom = 548.0
+label_settings = SubResource("LabelSettings_n15uq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_0vwj0")
+}
+
+[node name="Audios" type="AudioStreamPlayer" parent="CanvasLayer"]
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 896.0
+offset_top = 607.0
+offset_right = 1141.0
+offset_bottom = 637.0
+text = "Siguiente
+"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("2_hxo8m")
