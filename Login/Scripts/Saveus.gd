@@ -13,7 +13,8 @@ var contarmorado=0
 var contarnara=0
 var contarazul=0
 var contarrosa=0
-
+var contarpalabra=0
+var posicioninicial=0
 func _ready():
 	cargar()
 	pass # Replace with function body.
