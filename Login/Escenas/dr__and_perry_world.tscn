@@ -9,6 +9,7 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mgwkb"]
 texture = ExtResource("3_m73hr")
+margins = Vector2i(22, 0)
 texture_region_size = Vector2i(33, 33)
 1:24/0 = 0
 1:24/0/physics_layer_0/linear_velocity = Vector2(0, 0)
