@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 const speed= 200
 var current_dir = "none"
-
+@export var maxHealth =4
+@onready var current_health:int = 0
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 
@@ -66,5 +67,6 @@ func play_anim(movement):
 		elif  movement == 0:
 			anim.play("front_idle")
 		
-
-
+#funcion para ver si ganó el juego
+#if currentHealth <0
+#currentHealth = max

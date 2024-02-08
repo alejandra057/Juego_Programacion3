@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5y3gl3fd7y82"]
+[gd_scene load_steps=19 format=3 uid="uid://c5y3gl3fd7y82"]
 
 [ext_resource type="Script" path="res://Scripts/merida.gd" id="1_8pko1"]
 [ext_resource type="Texture2D" uid="uid://dyicq4lev2sw7" path="res://Art/Sprites/khsom___disney_characters_rpg_maker_vx_sprites_by_reversecrown_d6gq7ob.png" id="2_11us6"]
+[ext_resource type="PackedScene" uid="uid://bacs3rxaxgocf" path="res://Escenas/hearth_container.tscn" id="3_o2lti"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2r7bf"]
 atlas = ExtResource("2_11us6")
@@ -142,3 +143,11 @@ shape = SubResource("CapsuleShape2D_nffse")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(564, 609)
 limit_smoothed = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="heartContainer" parent="CanvasLayer" instance=ExtResource("3_o2lti")]
+offset_left = 11.0
+offset_top = 167.0
+offset_right = 176.0
+offset_bottom = 210.0
