@@ -27,7 +27,7 @@ func _on_login_pressed():
 		var cont=textcontra.text
 		if Saveus.iniciosesion(name,cont):
 			informacion.text="BIENVENIDO"
-			get_tree().change_scene_to_file("res://Escenas/mundo_principal.tscn")
+			get_tree().change_scene_to_file("res://Escenas/Narrative.tscn")
 			print("funciona")
 		else:
 			informacion.text=Saveus.texto

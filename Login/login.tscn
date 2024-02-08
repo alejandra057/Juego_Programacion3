@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfadw0busw4xq"]
+[gd_scene load_steps=3 format=3 uid="uid://c0ppnwj5ttip0"]
 
 [ext_resource type="Script" path="res://login.gd" id="1_ih0ww"]
 [ext_resource type="Texture2D" uid="uid://3vbq2ilfmu8h" path="res://fondologin.jpg" id="2_slsln"]
