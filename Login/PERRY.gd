@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+var temporizador
 const speed= 250
 var current_dir = "none"
 var animacion
@@ -16,11 +16,16 @@ var vida2
 var vida3
 var vida4
 var vida5
+@onready var anima=$"../Sprite2D/animacionD"
+@onready var anima2=$"../Sprite2D2/AnimacionA"
+@onready var anima3=$"../Sprite2D3/AnimacionC"
+@onready var anima4=$"../Sprite2D4/AnimacionB"
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var contar=0
 func _ready():
 	animacion=$AnimatedSprite2D
+	temporizador = $"../Timer"
 	$spriteironman.play("espalda")
 	Saveus.posicioninicial=$".".position
 	print("posicion ",posicioninicial)
@@ -34,6 +39,8 @@ func _ready():
 	vida3.hide()
 	vida2.hide()
 	vida1.hide()
+
+
 func _physics_process(delta):
 	player_movement(delta)
 	
@@ -107,19 +114,29 @@ func _on_area_2d_body_entered(body):
 		Saveus.contarpalabra+=1
 		$Node2D._process(body)
 		vida2.show()
-	$".".position=Saveus.posicioninicial
-	print("posicionxd ",posicioninicial)
-	if $Node2D.current_text==0:
+		$lbinfo.show()
+		$lbinfo.text="Respuesta Correcta"
+		temporizador.wait_time = 1.5
+		temporizador.start()
+	else:
 		print("Respuesta incorrecta")
+		$"../Sprite2D3".show()
+		anima3.play("exp")
+		temporizador.wait_time = 1.5
+		temporizador.start()
+	
 	Saveus.contarpalabra=0
 	pass # Replace with function body.
-
 
 func _on_area_a_body_entered(body):
 	contar+=1;
 	print("Entra en perry")
 	$Node2D._process(body)
 	Saveus.contarpalabra=0
+	$"../Sprite2D2".show()
+	anima2.play("exp")
+	temporizador.wait_time = 1.5
+	temporizador.start()
 	pass # Replace with function body.
 
 
@@ -127,6 +144,10 @@ func _on_area_d_body_entered(body):
 	contar+=1;
 	$Node2D._process(body)
 	Saveus.contarpalabra=0
+	$"../Sprite2D".show()
+	anima.play("exp")
+	temporizador.wait_time = 1.5
+	temporizador.start()
 	pass # Replace with function body.
 
 
@@ -138,20 +159,37 @@ func _on_areab_body_entered(body):
 		#if $Node2D.valor==0:
 		vida1.show()
 		$lbinfo.show()
+		temporizador.wait_time = 1.5
+		temporizador.start()
 		print("valorrr ",$Node2D.valor)
 		if $Node2D.valor==3:
 			vida3.show()
 			vida2.hide()
 			vida1.hide()
+			temporizador.wait_time = 1.5
+			temporizador.start()
 			$lbinfo.text="Respuesta Correcta"
+			temporizador.wait_time = 1.5
+			temporizador.start()
 		if $Node2D.valor==4:
 			vida4.show()
 			vida3.hide()
+			temporizador.wait_time = 1.5
+			temporizador.start()
 			$lbinfo.text="Respuesta Correcta"
-		if $Node2D.valor==4:
+			temporizador.wait_time = 1.5
+			temporizador.start()
+		if $Node2D.valor==5:
 			vida5.show()
 			vida4.hide()
-			$lbinfo.text="Respuesta Correcta"
+			$lbinfo.text="Felicidades!"
+			$lbinfo/Button.show()
+			temporizador.stop()
+	else:
+			$"../Sprite2D4".show()
+			anima4.play("exp")
+			temporizador.wait_time = 1.5
+			temporizador.start()
 	Saveus.contarpalabra=0
 	pass # Replace with function body.
 
@@ -177,4 +215,13 @@ func _on_preguntas_body_entered(body):
 
 func _on_preguntas_body_exited(body):
 	$Node2D.hide()
+	pass # Replace with function body.
+
+
+func _on_timer_timeout():
+	$".".position=Saveus.posicioninicial
+	temporizador.stop()
+	$lbinfo.hide()
+	if $Node2D.valor==4:
+		$Node2D.valor+=1
 	pass # Replace with function body.

@@ -68,7 +68,6 @@ func finish_showtext():
 func _on_areac_body_entered(body):
 	if valor!=1:
 		print("Respuesta incorrecta")
-		current_text-=1
 	else:
 		valor+=1
 		print("Respuesta correcta")
@@ -93,7 +92,6 @@ func _on_areab_body_entered(body):
 		print("Respuesta correcta")
 	else:
 		print("Respuesta incorrecta")
-		current_text-=1
 		
 	
 		#_process(body)
