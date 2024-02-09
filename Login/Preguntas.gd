@@ -16,6 +16,7 @@ var texts : Array = [
 ]
 var current_text: int=0
 var contar=0
+var valor : int=0
 @onready var visual_text :RichTextLabel =$panel/RichTextLabel
 @onready var animation_mark: AnimationPlayer=$panel/AnimationPlayer
 @onready var mark : Control=$panel/Control
@@ -35,21 +36,25 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print("contar en process ",Saveus.contarpalabra)
 	if Saveus.contarpalabra>0:
 		next_text()
+		print("currentxx2 ",current_text)
 		set_process(false)
 		
 
 func next_text():
 	if current_text < texts.size()-1:
 		current_text +=1
+		valor=current_text
+		print("valor",valor)
+		print("currentxx ",current_text)
 		visual_text.visible_ratio=0
 		visual_text.text=texts[current_text]
 		mark.visible=0
 		show_text()
 
 func show_text():
+	print("currentenshow ",current_text)
 	var tween = create_tween()
 	tween.tween_property(visual_text,"visible_ratio",1,1.5)
 	tween.tween_callback(finish_showtext)
@@ -61,59 +66,33 @@ func finish_showtext():
 
 
 func _on_areac_body_entered(body):
-	pass
-	if current_text==0:
+	if valor!=1:
 		print("Respuesta incorrecta")
-	#print("aqui esta")
-	#electC=true
-	#electA=false
-	#electB=false
-	#electD=false
-	##next_text()
-	#if electC:
-		#Saveus.contarpalabra=1
-		#print("contar en area ",contar)
-		#_process(body)
-		#$"../CharacterBody2D".position=Saveus.posicioninicial
-	#set_process(true)
-	#next_text()
+	else:
+		valor+=1
+		print("Respuesta correcta")
+
 
 
 func _on_area_a_body_entered(body):
-	#electA=true
-	#electC=false
-	#electB=false
-	#electD=false
-	#if electA:
-		#Saveus.contarpalabra=1
-		#print("contar en area ",Saveus.contarpalabra)
-		#_process(body)
+	print("Respuesta incorrecta")
+	current_text-=1
 	pass # Replace with function body.
 
 
 func _on_area_d_body_entered(body):
-	#electA=false
-	#electC=false
-	#electB=false
-	#electD=true
-	#if electD:
-		#Saveus.contarpalabra=1
-		#print("contar en area ",Saveus.contarpalabra)
-		#_process(body)
+	print("Respuesta incorrecta")
+	current_text-=1
 	pass # Replace with function body.
 
-
 func _on_areab_body_entered(body):
-	if current_text==0:
+	print("current ",valor)
+	if valor!=1:
+		valor+=1
 		print("Respuesta correcta")
+	else:
+		print("Respuesta incorrecta")
 		
-		
-	#electA=false
-	#electC=false
-	#electB=true
-	#electD=false
-	#if electB:
-		#Saveus.contarpalabra=1
-		#print("contar en area ",Saveus.contarpalabra)
+	
 		#_process(body)
 	pass # Replace with function body.
