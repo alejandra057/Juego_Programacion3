@@ -16,7 +16,6 @@ func start(Text:String,image:Texture,audios: AudioStream)->void:
 	$CanvasLayer/Image.texture = image
 	$CanvasLayer/Audios.stream = audios
 	$CanvasLayer/Audios.play()
-	$CanvasLayer/AnimationPlayer.stop()
 	$CanvasLayer/AnimationPlayer.play("type")
 	
 
