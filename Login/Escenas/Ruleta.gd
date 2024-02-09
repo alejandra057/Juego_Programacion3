@@ -1,8 +1,10 @@
 extends Node2D
+
+var opciones_seleccionadas = []
 var velocidad = 0
 var encendido = false
 var contar = 0
-var opciones = [{"nombre": "Politica", "probabilidad": 0.2}, {"nombre": "Ciencia", "probabilidad": 0.3}, {"nombre": "Arte", "probabilidad": 0.4}, {"nombre": "Historia", "probabilidad": 0.1}]
+var opciones = [{"nombre": "Politica", "probabilidad": 0.5}, {"nombre": "Ciencia", "probabilidad": 0.5}, {"nombre": "Arte", "probabilidad": 0.5}, {"nombre": "Historia", "probabilidad": 0.5}]
 var lbpolitica : Label
 var lbciencia : Label
 var lbarte: Label
@@ -20,9 +22,7 @@ var estado
 var seleccion_actual = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	randomize()
-	
 	lbpolitica = $lbpolitica
 	lbciencia = $lbciencia
 	lbarte = $lbarte
@@ -47,25 +47,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("space bar"):
 		girar_ruleta()
 
-#func _process(delta):
-	#if velocidad <= 0:
-		#encendido = false
-		#timer.stop()
-		#eliminar()
-		#if tiempoextra > 0:
-			#timer.set_wait_time(tiempoextra)
-			#timer.start()
-			#tiempoextra = 0
-	#if encendido:
-		#rotacion.rotation_degrees += velocidad * delta
-	#else:
-		#encendido = false
-	#if Input.is_action_just_pressed("space bar"):
-		#contar = 1
-		#velocidad = randf_range(30, 40)
-		#encendido = true
-		#timer.set_wait_time(1.5)
-		#timer.start()
 
 func girar_ruleta():
 	if not encendido:
@@ -88,6 +69,9 @@ func seleccionar_opcion():
 	for opcion in opciones_validas:
 		suma_probabilidad += opcion["probabilidad"]
 		if random_value < suma_probabilidad:
+			seleccion_actual = opcion
+			opciones_seleccionadas.append(opcion)
+			opcion["probabilidad"] = 0
 			return opcion
 	return opciones_validas[-1]
 
@@ -96,21 +80,13 @@ func mostrar_opcion():
 		"Politica":
 			lbpolitica.show()
 			texto.text = "CATEGORIA\nPOLITICA"
-			 var inicio_world = get_node(inicio_world/castillo)
-			if inicio_world:
-				var animation_player = inicio_world.get_node("doorsanimation")
-				 if animation_player:
-					animation_player.play("nombre_de_la_animacion_politica")
-		
 		"Ciencia":
 			lbciencia.show()
 			texto.text = "CATEGORIA\nCIENCIA"
-			selectnara = true
 		"Arte":
 			lbarte.show()
 			texto.text = "CATEGORIA\nARTE"
-			selectrosa = true
 		"Historia":
 			lbhistoria.show()
 			texto.text = "CATEGORIA\nHISTORIA"
-			selecmorado = true
+			
