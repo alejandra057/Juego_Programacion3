@@ -6,7 +6,7 @@ func _ready():
 	heartsContainer.updateHearts(1)
 
 func _process(delta):
-	if Input.is_action_just_pressed("space bar"):
+	if Input.is_action_just_pressed("space bar"): 
 		$Roulette.show()
 		
 

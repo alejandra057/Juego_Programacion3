@@ -1,138 +1,149 @@
 extends Node2D
 
-var velocidad=20
-var encendido=false
-var contar=0
-var estado
-var opciones=[]
+
+var velocidad = 0
+var encendido = false
+var contar = 0
+var opciones = [{"nombre": "Politica", "probabilidad": 0.2}, {"nombre": "Ciencia", "probabilidad": 0.3}, {"nombre": "Arte", "probabilidad": 0.4}, {"nombre": "Historia", "probabilidad": 0.1}]
 var lbpolitica : Label
 var lbciencia : Label
 var lbarte: Label
 var lbhistoria : Label
 var texto : Label
 var btok : Button
-var selecmorado=false
-var selectnara=false
-var selectazul=false
-var selectrosa=false
-var tiempoextra=0
-@onready var timer=$"../Timer"
-@onready var rotacion=$"."
-
+var selecmorado = false
+var selectnara = false
+var selectazul = false
+var selectrosa = false
+var tiempoextra = 0
+var timer : Timer
+var rotacion : Node2D
+var estado
+var seleccion_actual = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	encendido=false
-	print("opciones: ",opciones)
-	lbpolitica=$lbpolitica
-	lbciencia=$lbciencia
-	lbarte=$lbarte
-	lbhistoria=$lbhistoria
-	btok=$"../Button2"
-	texto =$"../lbanuncio"
-	#lbarte.show()
-	pass # Replace with function body.
-
+	randomize()
+	lbpolitica = $lbpolitica
+	lbciencia = $lbciencia
+	lbarte = $lbarte
+	lbhistoria = $lbhistoria
+	texto = $"../lbanuncio"
+	timer = $"../Timer"
+	rotacion = $"."
+	lbpolitica.hide()
+	lbciencia.hide()
+	lbarte.hide()
+	lbhistoria.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if velocidad<=0:
-		encendido=false
-		timer.stop()
-		eliminar()
-		if tiempoextra>0:
+	if encendido:
+		rotacion.rotation_degrees += velocidad * delta
+		if velocidad > 0:
+			velocidad -= 20 * delta
+		else:
+			encendido = false
+			mostrar_opcion()
+	if Input.is_action_just_pressed("space bar"):
+		girar_ruleta()
+
+#func _process(delta):
+	#if velocidad <= 0:
+		#encendido = false
+		#timer.stop()
+		#eliminar()
+		#if tiempoextra > 0:
+			#timer.set_wait_time(tiempoextra)
+			#timer.start()
+			#tiempoextra = 0
+	#if encendido:
+		#rotacion.rotation_degrees += velocidad * delta
+	#else:
+		#encendido = false
+	#if Input.is_action_just_pressed("space bar"):
+		#contar = 1
+		#velocidad = randf_range(30, 40)
+		#encendido = true
+		#timer.set_wait_time(1.5)
+		#timer.start()
+
+func girar_ruleta():
+	if not encendido:
+		encendido = true
+		velocidad = randf_range(200, 220)
+		seleccion_actual = seleccionar_opcion()
+		timer.set_wait_time(2)
+		timer.start()
+
+func seleccionar_opcion():
+	var opciones_validas = []
+	for opcion in opciones:
+		if opcion != seleccion_actual:
+			opciones_validas.append(opcion)
+	var total_probabilidad = 0
+	for opcion in opciones_validas:
+		total_probabilidad += opcion["probabilidad"]
+	var random_value = randf() * total_probabilidad
+	var suma_probabilidad = 0
+	for opcion in opciones_validas:
+		suma_probabilidad += opcion["probabilidad"]
+		if random_value < suma_probabilidad:
+			return opcion
+	return opciones_validas[-1]
+
+func mostrar_opcion():
+	match seleccion_actual["nombre"]:
+		"Politica":
+			lbpolitica.show()
+			texto.text = "CATEGORIA\nPOLITICA"
+		"Ciencia":
+			lbciencia.show()
+			texto.text = "CATEGORIA\nCIENCIA"
+		"Arte":
+			lbarte.show()
+			texto.text = "CATEGORIA\nARTE"
+		"Historia":
+			lbhistoria.show()
+			texto.text = "CATEGORIA\nHISTORIA"
 			
-			timer.start(tiempoextra)
-			print("tiempo: ",tiempoextra)
-			tiempoextra=0
-	if encendido==true:
-		rotacion.rotation_degrees+=velocidad
-	else:
-		encendido=false
-	pass
-
-
-func _on_timer_timeout():
-	velocidad-=5
-
-
-
-func _on_btiniciar_pressed():
-	contar=1
-	velocidad=randf_range(15,25)
-	encendido=true
-	#randomize()
-	timer.start()
-
-
-func _on_area_2d_area_entered(area):
-	if area.is_in_group("Color"):
-		estado="Naranja"
-		print(estado)
-		if selectnara==true:
-			tiempoextra+3
-			print("pasa")
-	pass # Replace with function body.
-
-
-func _on_area_2d_2_area_entered(area):
-	if area.is_in_group("Color"):
-		estado="Rosa"
-		print(estado)
-		if selectrosa==true:
-			tiempoextra+3
-			print("pasa")
-	
-	pass # Replace with function body.
-
-
-func _on_area_2d_3_area_entered(area):
-	if area.is_in_group("Color"):
-		estado="Azul"
-		print(estado)
-		if selectazul==true:
-			tiempoextra+3
-			print("pasa")
-	pass # Replace with function body.
-
-
-func _on_area_2d_4_area_entered(area):
-	if area.is_in_group("Color"):
-		estado="Morado"
-		print(estado)
-		if selecmorado==true:
-			tiempoextra+3
-			print("pasa")
-	pass # Replace with function body.
-
-func eliminar():
-			if "Morado"==estado:
-				lbhistoria.show()
-				texto.text="CATEGORIA\nHISTORIA"
-				btok.show()
-				selecmorado=true
-			elif "Azul"==estado:
-				lbpolitica.show()
-				btok.show()
-				texto.text="CATEGORIA\nPOLITICA"
-				selectazul=true
-			elif "Naranja"==estado:
-				lbciencia.show()
-				texto.text="CATEGORIA\nCIENCIA"
-				btok.show()
-				selectnara=true
-			elif "Rosa"==estado:
-				lbarte.show()
-				btok.show()
-				texto.text="CATEGORIA\nARTE"
-				selectrosa=true
-
-
-
-func _on_button_pressed():
-	get_tree().change_scene_to_file("res://ejemplo.tscn")
-	pass # Replace with function body.
-
-
-func _on_button_2_pressed():
-	get_tree().change_scene_to_file("res://ejemplo.tscn")
-	pass 
+#func _on_timer_timeout():
+	#velocidad -= 5
+#
+#func _on_area_2d_area_entered(area):
+		#tiempoextra += 3
+		#print("pasó")
+		#estado="Naranja"
+#
+#func _on_area_2d_2_area_entered(area):
+		#tiempoextra += 3
+		#print("pasó")
+		#estado="Rosa"
+#
+#func _on_area_2d_3_area_entered(area):
+		#tiempoextra += 3
+		#print("pasó")
+		#estado="Azul"
+#
+#func _on_area_2d_4_area_entered(area):
+		#tiempoextra += 3
+		#print("pasó")
+		#estado="Morado"
+#
+#func eliminar():
+	#match estado:
+		#"Morado":
+			#lbhistoria.show()
+			#texto.text = "CATEGORIA\nHISTORIA"
+			#selecmorado = true
+		#"Azul":
+			#lbpolitica.show()
+			#texto.text = "CATEGORIA\nPOLITICA"
+			#selectazul = true
+		#"Naranja":
+			#lbciencia.show()
+			#texto.text = "CATEGORIA\nCIENCIA"
+			#selectnara = true
+		#"Rosa":
+			#lbarte.show()
+			#texto.text = "CATEGORIA\nARTE"
+			#selectrosa = true
