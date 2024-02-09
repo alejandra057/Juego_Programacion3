@@ -1,6 +1,4 @@
 extends Node2D
-
-
 var velocidad = 0
 var encendido = false
 var contar = 0
@@ -22,7 +20,9 @@ var estado
 var seleccion_actual = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	randomize()
+	
 	lbpolitica = $lbpolitica
 	lbciencia = $lbciencia
 	lbarte = $lbarte
@@ -96,54 +96,21 @@ func mostrar_opcion():
 		"Politica":
 			lbpolitica.show()
 			texto.text = "CATEGORIA\nPOLITICA"
+			 var inicio_world = get_node(inicio_world/castillo)
+			if inicio_world:
+				var animation_player = inicio_world.get_node("doorsanimation")
+				 if animation_player:
+					animation_player.play("nombre_de_la_animacion_politica")
+		
 		"Ciencia":
 			lbciencia.show()
 			texto.text = "CATEGORIA\nCIENCIA"
+			selectnara = true
 		"Arte":
 			lbarte.show()
 			texto.text = "CATEGORIA\nARTE"
+			selectrosa = true
 		"Historia":
 			lbhistoria.show()
 			texto.text = "CATEGORIA\nHISTORIA"
-			
-#func _on_timer_timeout():
-	#velocidad -= 5
-#
-#func _on_area_2d_area_entered(area):
-		#tiempoextra += 3
-		#print("pasó")
-		#estado="Naranja"
-#
-#func _on_area_2d_2_area_entered(area):
-		#tiempoextra += 3
-		#print("pasó")
-		#estado="Rosa"
-#
-#func _on_area_2d_3_area_entered(area):
-		#tiempoextra += 3
-		#print("pasó")
-		#estado="Azul"
-#
-#func _on_area_2d_4_area_entered(area):
-		#tiempoextra += 3
-		#print("pasó")
-		#estado="Morado"
-#
-#func eliminar():
-	#match estado:
-		#"Morado":
-			#lbhistoria.show()
-			#texto.text = "CATEGORIA\nHISTORIA"
-			#selecmorado = true
-		#"Azul":
-			#lbpolitica.show()
-			#texto.text = "CATEGORIA\nPOLITICA"
-			#selectazul = true
-		#"Naranja":
-			#lbciencia.show()
-			#texto.text = "CATEGORIA\nCIENCIA"
-			#selectnara = true
-		#"Rosa":
-			#lbarte.show()
-			#texto.text = "CATEGORIA\nARTE"
-			#selectrosa = true
+			selecmorado = true
