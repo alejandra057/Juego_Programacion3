@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbx4phwsxij24"]
+[gd_scene load_steps=14 format=3 uid="uid://dbx4phwsxij24"]
 
 [ext_resource type="PackedScene" uid="uid://btyfffv6qyen" path="res://Texto.tscn" id="2_ah2vt"]
 [ext_resource type="PackedScene" uid="uid://dy68ly1paaqnh" path="res://Perry.tscn" id="3_5wcw4"]
 [ext_resource type="Texture2D" uid="uid://yf5albnsmfvd" path="res://Art/Escenarios_Mundos/tilesetminijuego.jpg" id="3_m73hr"]
 [ext_resource type="Texture2D" uid="uid://2go020pn30id" path="res://Art/Sprites/señal-removebg-preview.png" id="4_7ltti"]
-[ext_resource type="PackedScene" uid="uid://cokhbwy7taegl" path="res://wanda.tscn" id="5_gbb3g"]
 [ext_resource type="PackedScene" uid="uid://bv22oktgfiadu" path="res://Preguntas.tscn" id="6_j5kuh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mgwkb"]
@@ -307,10 +306,10 @@ size = Vector2(169, 95)
 size = Vector2(179, 126)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc57y"]
-size = Vector2(135, 98)
+size = Vector2(212, 98)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ot60g"]
-size = Vector2(142.75, 123.5)
+size = Vector2(223, 123.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcj0y"]
 size = Vector2(80, 44)
@@ -369,18 +368,6 @@ position = Vector2(520, 517)
 position = Vector2(426, 728)
 texture = ExtResource("4_7ltti")
 
-[node name="Wanda" parent="." instance=ExtResource("5_gbb3g")]
-position = Vector2(618, 248)
-
-[node name="Wanda2" parent="." instance=ExtResource("5_gbb3g")]
-position = Vector2(611, 19)
-
-[node name="Wanda3" parent="." instance=ExtResource("5_gbb3g")]
-position = Vector2(-391, 268)
-
-[node name="Wanda4" parent="." instance=ExtResource("5_gbb3g")]
-position = Vector2(-402, 11)
-
 [node name="areac" type="Area2D" parent="."]
 position = Vector2(324, 180)
 
@@ -399,14 +386,14 @@ shape = SubResource("RectangleShape2D_osxb0")
 position = Vector2(944, 174)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaD"]
-position = Vector2(37.5, -8)
+position = Vector2(-1, -8)
 shape = SubResource("RectangleShape2D_xc57y")
 
 [node name="Areab" type="Area2D" parent="."]
 position = Vector2(956, 426)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areab"]
-position = Vector2(30.625, -16)
+position = Vector2(-9.5, -16)
 shape = SubResource("RectangleShape2D_ot60g")
 
 [node name="Señal" type="Area2D" parent="."]

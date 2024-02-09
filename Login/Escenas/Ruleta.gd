@@ -2,7 +2,7 @@ extends Node2D
 var velocidad = 0
 var encendido = false
 var contar = 0
-var opciones = [{"nombre": "Politica", "probabilidad": 0.2}, {"nombre": "Ciencia", "probabilidad": 0.3}, {"nombre": "Arte", "probabilidad": 0.4}, {"nombre": "Historia", "probabilidad": 0.1}]
+var opciones = [{"nombre": "Politica", "probabilidad": 0.5}, {"nombre": "Ciencia", "probabilidad": 0.5}, {"nombre": "Arte", "probabilidad": 0.5}, {"nombre": "Historia", "probabilidad": 0.5}]
 var lbpolitica : Label
 var lbciencia : Label
 var lbarte: Label
@@ -18,6 +18,7 @@ var timer : Timer
 var rotacion : Node2D
 var estado
 var seleccion_actual = null
+var opciones_seleccionadas = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -47,26 +48,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("space bar"):
 		girar_ruleta()
 
-#func _process(delta):
-	#if velocidad <= 0:
-		#encendido = false
-		#timer.stop()
-		#eliminar()
-		#if tiempoextra > 0:
-			#timer.set_wait_time(tiempoextra)
-			#timer.start()
-			#tiempoextra = 0
-	#if encendido:
-		#rotacion.rotation_degrees += velocidad * delta
-	#else:
-		#encendido = false
-	#if Input.is_action_just_pressed("space bar"):
-		#contar = 1
-		#velocidad = randf_range(30, 40)
-		#encendido = true
-		#timer.set_wait_time(1.5)
-		#timer.start()
-
 func girar_ruleta():
 	if not encendido:
 		encendido = true
@@ -88,6 +69,9 @@ func seleccionar_opcion():
 	for opcion in opciones_validas:
 		suma_probabilidad += opcion["probabilidad"]
 		if random_value < suma_probabilidad:
+			seleccion_actual = opcion
+			opciones_seleccionadas.append(opcion)
+			opcion["probabilidad"] = 0
 			return opcion
 	return opciones_validas[-1]
 
