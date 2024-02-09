@@ -4,8 +4,15 @@ var texts : Array = [
 	" Entre los siguientes renacentistas seleccione, uno de los precursores filósofo-científico del heliocentrismo 
 	  (teoría que afirma que el sol es el centro del universo)
 	  A) Tomas Moro. B) Galileo. C) Platón. D) Arquimedes ",
-	"El método científico se introduce por el interés de tres filósofos. Entre los siguientes
-	 uno de los mencionados no es precursor del método científico: A) Francis Bacon. B) Galileo Galilei. C)Nicolas Maquiavelo. D) René Descartes"
+	 "El método científico se introduce por el interés de tres filósofos. Entre los siguientes
+	 uno de los mencionados no es precursor del método científico: A) Francis Bacon. B) Galileo Galilei. C)Nicolas Maquiavelo. D) René Descartes",
+	" Es uno de los precursores   del pensamiento Moderno:  
+	A) Isaac Newton. B) René Descartes. C) Erasmo de Roterdam. D) Francis Bacon",
+	" De los siguientes filósofos niega el geocentrismo (teoría que afirma que el centro de nuestro sistema solar 
+	  es la tierra):  
+	  A) Aristóteles. B) Nicolás Copérnico. C) Tomás de Aquino.  D) Isaac Newton",
+	"Uno de los inventos que suscitó un conocimiento ilimitado, fue el de Gutenberg:  
+	A) El astrolabio. B) La imprenta. C) La Nao y la Carabela. D) El Telescopio"
 ]
 var current_text: int=0
 var contar=0

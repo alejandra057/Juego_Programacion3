@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://dbx4phwsxij24"]
 
-[ext_resource type="PackedScene" path="res://Texto.tscn" id="2_ah2vt"]
+[ext_resource type="PackedScene" uid="uid://btyfffv6qyen" path="res://Texto.tscn" id="2_ah2vt"]
 [ext_resource type="PackedScene" uid="uid://dy68ly1paaqnh" path="res://Perry.tscn" id="3_5wcw4"]
 [ext_resource type="Texture2D" uid="uid://yf5albnsmfvd" path="res://Art/Escenarios_Mundos/tilesetminijuego.jpg" id="3_m73hr"]
 [ext_resource type="Texture2D" uid="uid://2go020pn30id" path="res://Art/Sprites/señal-removebg-preview.png" id="4_7ltti"]
 [ext_resource type="PackedScene" uid="uid://cokhbwy7taegl" path="res://wanda.tscn" id="5_gbb3g"]
-[ext_resource type="PackedScene" path="res://Preguntas.tscn" id="6_j5kuh"]
+[ext_resource type="PackedScene" uid="uid://bv22oktgfiadu" path="res://Preguntas.tscn" id="6_j5kuh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mgwkb"]
 texture = ExtResource("3_m73hr")

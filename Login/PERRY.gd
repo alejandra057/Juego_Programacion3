@@ -96,6 +96,7 @@ func _on_area_2d_body_entered(body):
 	print("posicionxd ",posicioninicial)
 	if $Node2D.current_text==0:
 		print("Respuesta incorrecta")
+	Saveus.contarpalabra=0
 	pass # Replace with function body.
 
 
@@ -104,6 +105,7 @@ func _on_area_a_body_entered(body):
 	print("Entra en perry")
 	Saveus.contarpalabra+=1
 	$Node2D._process(body)
+	Saveus.contarpalabra=0
 	pass # Replace with function body.
 
 
@@ -111,6 +113,7 @@ func _on_area_d_body_entered(body):
 	contar+=1;
 	Saveus.contarpalabra+=1
 	$Node2D._process(body)
+	Saveus.contarpalabra=0
 	pass # Replace with function body.
 
 
@@ -122,6 +125,7 @@ func _on_areab_body_entered(body):
 		$TextureRect.hide()
 		vida1.show()
 		print("Respuesta correcta")
+		Saveus.contarpalabra=0
 	pass # Replace with function body.
 
 
