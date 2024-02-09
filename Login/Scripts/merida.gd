@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed= 300
+const speed= 400
 var current_dir = "none"
 @export var maxHealth =4
 @onready var current_health:int = 0
