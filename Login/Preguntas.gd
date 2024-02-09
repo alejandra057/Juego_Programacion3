@@ -17,6 +17,7 @@ var texts : Array = [
 var current_text: int=0
 var contar=0
 var valor : int=0
+var Informacion: String
 @onready var visual_text :RichTextLabel =$panel/RichTextLabel
 @onready var animation_mark: AnimationPlayer=$panel/AnimationPlayer
 @onready var mark : Control=$panel/Control
@@ -67,22 +68,22 @@ func finish_showtext():
 
 func _on_areac_body_entered(body):
 	if valor!=1:
-		print("Respuesta incorrecta")
+		Informacion="Respuesta incorrecta"
 		current_text-=1
 	else:
 		valor+=1
-		print("Respuesta correcta")
+		Informacion="Respuesta correcta"
 
 
 
 func _on_area_a_body_entered(body):
-	print("Respuesta incorrecta")
+	Informacion="Respuesta incorrecta"
 	current_text-=1
 	pass # Replace with function body.
 
 
 func _on_area_d_body_entered(body):
-	print("Respuesta incorrecta")
+	Informacion="Respuesta incorrecta"
 	current_text-=1
 	pass # Replace with function body.
 
@@ -90,9 +91,9 @@ func _on_areab_body_entered(body):
 	print("current ",valor)
 	if valor!=1:
 		valor+=1
-		print("Respuesta correcta")
+		Informacion="Respuesta correcta"
 	else:
-		print("Respuesta incorrecta")
+		Informacion="Respuesta incorrecta"
 		current_text-=1
 		
 	

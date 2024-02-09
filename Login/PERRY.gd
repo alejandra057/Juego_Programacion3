@@ -12,6 +12,10 @@ var ronda5=false
 var cntarentrada=0;
 var posicioninicial
 var vida1
+var vida2
+var vida3
+var vida4
+var vida5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var contar=0
@@ -21,6 +25,15 @@ func _ready():
 	Saveus.posicioninicial=$".".position
 	print("posicion ",posicioninicial)
 	vida1=$"1vida"
+	vida2=$"2vida"
+	vida3=$"3vida"
+	vida4=$"4vida"
+	vida5=$"5vida"
+	vida5.hide()
+	vida4.hide()
+	vida3.hide()
+	vida2.hide()
+	vida1.hide()
 func _physics_process(delta):
 	player_movement(delta)
 	
@@ -93,6 +106,7 @@ func _on_area_2d_body_entered(body):
 	if $Node2D.valor==1:
 		Saveus.contarpalabra+=1
 		$Node2D._process(body)
+		vida2.show()
 	$".".position=Saveus.posicioninicial
 	print("posicionxd ",posicioninicial)
 	if $Node2D.current_text==0:
@@ -121,10 +135,23 @@ func _on_areab_body_entered(body):
 	if $Node2D.valor!=1:
 		Saveus.contarpalabra+=1
 		$Node2D._process(body)
-	if $Node2D.current_text==0:
-		$TextureRect.hide()
+		#if $Node2D.valor==0:
 		vida1.show()
-		print("Respuesta correcta")
+		$lbinfo.show()
+		print("valorrr ",$Node2D.valor)
+		if $Node2D.valor==3:
+			vida3.show()
+			vida2.hide()
+			vida1.hide()
+			$lbinfo.text="Respuesta Correcta"
+		if $Node2D.valor==4:
+			vida4.show()
+			vida3.hide()
+			$lbinfo.text="Respuesta Correcta"
+		if $Node2D.valor==4:
+			vida5.show()
+			vida4.hide()
+			$lbinfo.text="Respuesta Correcta"
 	Saveus.contarpalabra=0
 	pass # Replace with function body.
 
