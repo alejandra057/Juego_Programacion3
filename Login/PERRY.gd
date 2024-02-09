@@ -90,8 +90,9 @@ func play_anim(movement):
 
 func _on_area_2d_body_entered(body):
 	print("entroxddd")
-	Saveus.contarpalabra+=1
-	$Node2D._process(body)
+	if $Node2D.valor==1:
+		Saveus.contarpalabra+=1
+		$Node2D._process(body)
 	$".".position=Saveus.posicioninicial
 	print("posicionxd ",posicioninicial)
 	if $Node2D.current_text==0:
@@ -103,7 +104,6 @@ func _on_area_2d_body_entered(body):
 func _on_area_a_body_entered(body):
 	contar+=1;
 	print("Entra en perry")
-	Saveus.contarpalabra+=1
 	$Node2D._process(body)
 	Saveus.contarpalabra=0
 	pass # Replace with function body.
@@ -111,7 +111,6 @@ func _on_area_a_body_entered(body):
 
 func _on_area_d_body_entered(body):
 	contar+=1;
-	Saveus.contarpalabra+=1
 	$Node2D._process(body)
 	Saveus.contarpalabra=0
 	pass # Replace with function body.
@@ -119,13 +118,14 @@ func _on_area_d_body_entered(body):
 
 func _on_areab_body_entered(body):
 	contar+=1;
-	Saveus.contarpalabra+=1
-	$Node2D._process(body)
+	if $Node2D.valor!=1:
+		Saveus.contarpalabra+=1
+		$Node2D._process(body)
 	if $Node2D.current_text==0:
 		$TextureRect.hide()
 		vida1.show()
 		print("Respuesta correcta")
-		Saveus.contarpalabra=0
+	Saveus.contarpalabra=0
 	pass # Replace with function body.
 
 

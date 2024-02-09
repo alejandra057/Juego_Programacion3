@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbx4phwsxij24"]
+[gd_scene load_steps=14 format=3 uid="uid://dbx4phwsxij24"]
 
 [ext_resource type="PackedScene" uid="uid://btyfffv6qyen" path="res://Texto.tscn" id="2_ah2vt"]
 [ext_resource type="PackedScene" uid="uid://dy68ly1paaqnh" path="res://Perry.tscn" id="3_5wcw4"]
 [ext_resource type="Texture2D" uid="uid://yf5albnsmfvd" path="res://Art/Escenarios_Mundos/tilesetminijuego.jpg" id="3_m73hr"]
 [ext_resource type="Texture2D" uid="uid://2go020pn30id" path="res://Art/Sprites/señal-removebg-preview.png" id="4_7ltti"]
-[ext_resource type="PackedScene" uid="uid://cokhbwy7taegl" path="res://wanda.tscn" id="5_gbb3g"]
 [ext_resource type="PackedScene" uid="uid://bv22oktgfiadu" path="res://Preguntas.tscn" id="6_j5kuh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mgwkb"]
@@ -368,18 +367,6 @@ position = Vector2(520, 517)
 [node name="Señal-removebg-preview" type="Sprite2D" parent="."]
 position = Vector2(426, 728)
 texture = ExtResource("4_7ltti")
-
-[node name="Wanda" parent="." instance=ExtResource("5_gbb3g")]
-position = Vector2(618, 248)
-
-[node name="Wanda2" parent="." instance=ExtResource("5_gbb3g")]
-position = Vector2(611, 19)
-
-[node name="Wanda3" parent="." instance=ExtResource("5_gbb3g")]
-position = Vector2(-391, 268)
-
-[node name="Wanda4" parent="." instance=ExtResource("5_gbb3g")]
-position = Vector2(-402, 11)
 
 [node name="areac" type="Area2D" parent="."]
 position = Vector2(324, 180)
