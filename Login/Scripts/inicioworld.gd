@@ -40,4 +40,4 @@ func _on_area_2d_4_body_entered(body):
 
 func _on_area_2d_5_body_entered(body):
 	if body.is_in_group("player"):
-			ruta4 ="res://Escenas/Rapunzel_world.tscn"
+			ruta4 ="res://Escena_enredados.tscn"

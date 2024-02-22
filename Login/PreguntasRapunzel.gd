@@ -61,32 +61,21 @@ func finish_showtext():
 	animation_mark.play("MasTexto")
 	set_process(true)
 
+
+
+
+
 func _on_area_b_body_entered(body):
-	print("current ",valor)
-	if valor!=1:
-		valor+=1
-		print("Respuesta correcta")
-	else:
-		print("Respuesta incorrecta")
 	pass # Replace with function body.
 
 
 func _on_area_d_body_entered(body):
-	print("Respuesta incorrecta")
-	current_text-=1
 	pass # Replace with function body.
 
 
 func _on_area_a_body_entered(body):
-	print("Respuesta incorrecta")
-	current_text-=1
 	pass # Replace with function body.
 
 
 func _on_area_c_body_entered(body):
-	if valor!=1:
-		print("Respuesta incorrecta")
-	else:
-		valor+=1
-		print("Respuesta correcta")
 	pass # Replace with function body.

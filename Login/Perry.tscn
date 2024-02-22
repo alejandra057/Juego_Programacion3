@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cqou37hupt4sc" path="res://Art/Sprites/3vida-removebg-preview.png" id="6_cae5s"]
 [ext_resource type="Texture2D" uid="uid://v28uk83g8bt6" path="res://Art/Sprites/4vida-removebg-preview.png" id="7_p2blw"]
 [ext_resource type="Texture2D" uid="uid://cn1pok1v2rn62" path="res://Art/Sprites/5vida-removebg-preview.png" id="8_8crua"]
-[ext_resource type="PackedScene" uid="uid://bv22oktgfiadu" path="res://Preguntas.tscn" id="9_ry4ap"]
+[ext_resource type="PackedScene" path="res://Preguntas.tscn" id="9_ry4ap"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g0fvm"]
 atlas = ExtResource("2_4c2bx")

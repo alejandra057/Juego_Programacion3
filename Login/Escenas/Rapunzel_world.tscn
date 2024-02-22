@@ -1,9 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://dskrctam008cr"]
+[gd_scene load_steps=23 format=3 uid="uid://dskrctam008cr"]
 
 [ext_resource type="Texture2D" uid="uid://bfvhteq8lb26o" path="res://Art/Escenarios_Mundos/Game Boy Advance - Harvest Moon More Friends of Mineral Town - Forest Summer.png" id="1_png57"]
 [ext_resource type="Texture2D" uid="uid://b0xroqn2fgdst" path="res://Art/Escenarios_Mundos/DS DSi - Naruto Path of the Ninja 2 - Hidden Leaf Forest Konoha.png" id="2_qf7yw"]
 [ext_resource type="PackedScene" uid="uid://2xrubq6qca8r" path="res://Rapunzel.tscn" id="3_0nody"]
-[ext_resource type="Texture2D" uid="uid://db50ap3idvwl" path="res://Art/Escenarios_objetos/PC_Computer_-_Fisher-Price_Ready_For_School_Toddler_-_Paint___Brushes-removebg-preview.png" id="4_ivtxw"]
 [ext_resource type="Texture2D" uid="uid://xumdkgv1egp1" path="res://Art/Escenarios_objetos/00.png" id="4_wddwi"]
 [ext_resource type="Script" path="res://Escenas/Pieza1.gd" id="5_hp8rg"]
 [ext_resource type="Texture2D" uid="uid://wydm3e485aur" path="res://Art/Escenarios_objetos/01.png" id="6_7cxpy"]
@@ -11,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://diapv844ob2qx" path="res://Art/Escenarios_objetos/10.png" id="8_wnupd"]
 [ext_resource type="Texture2D" uid="uid://lh3g53xanovv" path="res://Art/Escenarios_objetos/11.png" id="9_voawu"]
 [ext_resource type="Texture2D" uid="uid://cmxruxifi0l28" path="res://Art/Escenarios_objetos/12.png" id="10_2h08a"]
-[ext_resource type="Texture2D" uid="uid://c1lp01t4s8adw" path="res://Art/Escenarios_objetos/pngwing.com.png" id="12_4udmg"]
+[ext_resource type="PackedScene" uid="uid://tde33wurshh0" path="res://PreguntasRapunzel.tscn" id="12_5iq10"]
+[ext_resource type="Script" path="res://PreguntasRapunzel.gd" id="13_0ogwk"]
 [ext_resource type="FontFile" uid="uid://ccyvw17fux16l" path="res://Art/Font/pf_ronda_seven.ttf" id="13_fh721"]
-[ext_resource type="PackedScene" uid="uid://b6lg14t53541d" path="res://preguntasrpzl.tscn" id="14_mrhgk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cs850"]
 texture = ExtResource("1_png57")
@@ -18809,26 +18808,8 @@ sources/0 = SubResource("TileSetAtlasSource_4304c")
 [sub_resource type="TileSet" id="TileSet_sxlv3"]
 physics_layer_0/collision_layer = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m46w0"]
-atlas = ExtResource("4_ivtxw")
-region = Rect2(0, 0, 71, 93)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sm6oy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m46w0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_30cif"]
-size = Vector2(82, 66)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4thm"]
-size = Vector2(10.2482, 7.94176)
+size = Vector2(11.5837, 9.56589)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ma3cv"]
 size = Vector2(101, 77)
@@ -18859,88 +18840,76 @@ tile_set = SubResource("TileSet_sxlv3")
 format = 2
 
 [node name="Label" type="Label" parent="."]
-offset_left = 184.0
-offset_top = 456.0
-offset_right = 232.0
-offset_bottom = 555.0
+offset_left = 48.0
+offset_top = 352.0
+offset_right = 96.0
+offset_bottom = 451.0
 theme_override_font_sizes/font_size = 72
 text = "A"
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 288.0
+offset_top = 80.0
+offset_right = 336.0
+offset_bottom = 179.0
+theme_override_font_sizes/font_size = 72
+text = "B"
+
 [node name="Label3" type="Label" parent="."]
-offset_left = 488.0
-offset_top = 472.0
-offset_right = 534.0
-offset_bottom = 571.0
+offset_left = 824.0
+offset_top = 120.0
+offset_right = 870.0
+offset_bottom = 219.0
 theme_override_font_sizes/font_size = 72
 text = "C"
 
 [node name="Label4" type="Label" parent="."]
-offset_left = 664.0
-offset_top = 464.0
-offset_right = 717.0
-offset_bottom = 563.0
+offset_left = 816.0
+offset_top = 496.0
+offset_right = 869.0
+offset_bottom = 595.0
 theme_override_font_sizes/font_size = 72
 text = "D"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(144, 400)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
-position = Vector2(216, 144)
-scale = Vector2(1.03873, 0.938175)
-sprite_frames = SubResource("SpriteFrames_sm6oy")
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_0nody")]
 
 [node name="Pieza1" type="Sprite2D" parent="."]
-position = Vector2(460.75, 105.251)
+position = Vector2(476.75, 225.251)
 scale = Vector2(0.817181, 0.720588)
 texture = ExtResource("4_wddwi")
 script = ExtResource("5_hp8rg")
 
 [node name="Pieza2" type="Sprite2D" parent="."]
-position = Vector2(460.75, 234.251)
+position = Vector2(476.75, 354.251)
 scale = Vector2(0.817181, 0.720588)
 texture = ExtResource("6_7cxpy")
 
 [node name="Pieza3" type="Sprite2D" parent="."]
-position = Vector2(460.75, 361.563)
+position = Vector2(476.75, 481.563)
 scale = Vector2(0.817, 0.721)
 texture = ExtResource("7_5ycyb")
 
 [node name="Pieza4" type="Sprite2D" parent="."]
-position = Vector2(644.75, 105.251)
+position = Vector2(660.75, 225.251)
 scale = Vector2(0.817, 0.721)
 texture = ExtResource("8_wnupd")
 
 [node name="Pieza5" type="Sprite2D" parent="."]
-position = Vector2(644.75, 234.249)
+position = Vector2(660.75, 354.25)
 scale = Vector2(0.817, 0.721)
 texture = ExtResource("9_voawu")
 
 [node name="Pieza6" type="Sprite2D" parent="."]
-position = Vector2(644.75, 361.563)
+position = Vector2(660.75, 481.563)
 scale = Vector2(0.817, 0.721)
 texture = ExtResource("10_2h08a")
-
-[node name="colorpalette" type="Sprite2D" parent="."]
-position = Vector2(352, 736)
-scale = Vector2(0.0567957, 0.0561674)
-texture = ExtResource("12_4udmg")
-
-[node name="pregunticas" type="Area2D" parent="."]
-position = Vector2(352, 744)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pregunticas"]
-shape = SubResource("RectangleShape2D_30cif")
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_0nody")]
-position = Vector2(24, -72)
 
 [node name="AreaB" type="Area2D" parent="."]
 rotation = 3.14159
 scale = Vector2(515.383, -601.393)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaB"]
-position = Vector2(-0.698507, 0.904568)
+position = Vector2(-0.605375, 0.212839)
 rotation = -3.14159
 scale = Vector2(0.011906, -0.0138033)
 shape = SubResource("RectangleShape2D_q4thm")
@@ -18948,40 +18917,40 @@ shape = SubResource("RectangleShape2D_q4thm")
 [node name="AreaD" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaD"]
-position = Vector2(672, 520)
+position = Vector2(840, 544)
 shape = SubResource("RectangleShape2D_ma3cv")
 
 [node name="AreaA" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaA"]
-position = Vector2(208, 512)
+position = Vector2(67.5, 410.5)
 shape = SubResource("RectangleShape2D_1v7hg")
 
 [node name="AreaC" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaC"]
-position = Vector2(512, 520)
+position = Vector2(848, 176)
 shape = SubResource("RectangleShape2D_x2qfq")
 
+[node name="Node2D" parent="." instance=ExtResource("12_5iq10")]
+position = Vector2(24, -8)
+script = ExtResource("13_0ogwk")
+
 [node name="Label5" type="Label" parent="."]
-offset_left = 400.0
-offset_top = -88.0
-offset_right = 704.0
-offset_bottom = 29.0
+offset_left = 432.0
+offset_top = 8.0
+offset_right = 736.0
+offset_bottom = 125.0
 theme_override_fonts/font = ExtResource("13_fh721")
 theme_override_font_sizes/font_size = 72
 text = "ARTE"
 horizontal_alignment = 1
 
-[node name="Node2D2" parent="." instance=ExtResource("14_mrhgk")]
-position = Vector2(80, -960)
-
-[node name="Timer" type="Timer" parent="."]
-
-[connection signal="body_entered" from="pregunticas" to="CharacterBody2D" method="_on_pregunticas_body_entered"]
-[connection signal="body_exited" from="pregunticas" to="CharacterBody2D" method="_on_pregunticas_body_exited"]
 [connection signal="body_entered" from="AreaB" to="CharacterBody2D" method="_on_area_b_body_entered"]
+[connection signal="body_entered" from="AreaB" to="Node2D" method="_on_area_b_body_entered"]
 [connection signal="body_entered" from="AreaD" to="CharacterBody2D" method="_on_area_d_body_entered"]
+[connection signal="body_entered" from="AreaD" to="Node2D" method="_on_area_d_body_entered"]
 [connection signal="body_entered" from="AreaA" to="CharacterBody2D" method="_on_area_a_body_entered"]
+[connection signal="body_entered" from="AreaA" to="Node2D" method="_on_area_a_body_entered"]
 [connection signal="body_entered" from="AreaC" to="CharacterBody2D" method="_on_area_c_body_entered"]
-[connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="body_entered" from="AreaC" to="Node2D" method="_on_area_c_body_entered"]
