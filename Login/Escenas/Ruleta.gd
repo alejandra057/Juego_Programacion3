@@ -80,17 +80,13 @@ func mostrar_opcion():
 		"Politica":
 			lbpolitica.show()
 			texto.text = "CATEGORIA\nPOLITICA"
-			
 		"Ciencia":
 			lbciencia.show()
 			texto.text = "CATEGORIA\nCIENCIA"
-			
 		"Arte":
 			lbarte.show()
 			texto.text = "CATEGORIA\nARTE"
-			
 		"Historia":
 			lbhistoria.show()
 			texto.text = "CATEGORIA\nHISTORIA"
-			
 			

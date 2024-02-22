@@ -98,4 +98,5 @@ animations = [{
 position = Vector2(352, 168)
 sprite_frames = SubResource("SpriteFrames_oa876")
 animation = &"new_animation"
-frame_progress = 0.289712
+frame = 1
+frame_progress = 0.690002
